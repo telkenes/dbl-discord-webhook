@@ -18,7 +18,9 @@ app.post("/hook", function (req, res) {
   if (req.headers.authorization !== config.auth) return res.send({code: "invalid auth"})
     var user_id = req.body.user;
     var bot = req.body.bot;
+  //well you can save dis stuff to a db or something idk what u want to do. i am just a random code who sees people who copy pasta
   if (req.body.type === "test") {
+    //if it is a test than say it is :angery:
     snekfetch.post(webhookurl).send({ "content": `<@${user_id}> voted <@${bot}> (This is a test)`}).then(r => {})
   } else {
     snekfetch.post(webhookurl).send({ "content": `<@${user_id}> voted <@${bot}>`}).then(r => {})
