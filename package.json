@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "express": "^4.16.3",
-    "snekfetch": "^4.0.0"
+    "phin": "^3.3.0"
   },
   "engines": {
     "node": "8.x"
