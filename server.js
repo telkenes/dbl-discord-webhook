@@ -1,5 +1,5 @@
 var express = require('express');
-var snekfetch = require('snekfetch')
+var phin = require('phin')
 var app = express();
 var config = require('./config.json')
 
@@ -21,9 +21,19 @@ app.post("/hook", function (req, res) {
   //well you can save dis stuff to a db or something idk what u want to do. i am just a random code who sees people who copy pasta
   if (req.body.type === "test") {
     //if it is a test than say it is :angery:
-    snekfetch.post(webhookurl).send({ "content": `<@${user_id}> voted <@${bot}> (This is a test)`}).then(r => {})
+    phin({
+url: webhookurl,
+method: 'POST',
+data: {
+'content': `<@${user_id}> voted <@${bot}> (This is a test)`
+}})
   } else {
-    snekfetch.post(webhookurl).send({ "content": `<@${user_id}> voted <@${bot}>`}).then(r => {})
+        phin({
+url: webhookurl,
+method: 'POST',
+data: {
+'content': `<@${user_id}> voted <@${bot}> (This is a test)`
+}})
 }
     res.send({code: "success"});
 });
